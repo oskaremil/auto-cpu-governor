@@ -1,0 +1,3 @@
+#!/bin/bash
+echo ">" `date` Set governor performance >> /var/log/auto-cpu-governor.log
+cpupower frequency-set --governor performance >> /var/log/auto-cpu-governor.log

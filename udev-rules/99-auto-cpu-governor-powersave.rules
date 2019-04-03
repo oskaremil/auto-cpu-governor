@@ -1,0 +1,2 @@
+# AC UNPLUGGED
+SUBSYSTEM=="power_supply", ATTR{online}=="0", RUN+="/usr/local/bin/cpu-governor-powersave"

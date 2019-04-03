@@ -1,0 +1,2 @@
+# AC PLUGGED-IN
+SUBSYSTEM=="power_supply", ATTR{online}=="1", RUN+="/usr/local/bin/cpu-governor-performance"
