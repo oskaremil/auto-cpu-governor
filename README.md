@@ -4,11 +4,37 @@ Automated scripts to change the CPU governor when power state changes between AC
 
 Inspired from a post on [ubuntuforums.org](https://ubuntuforums.org/showthread.php?t=2314674) I wanted to use the `cpupower` utility from linux-tools-generic and add some additional logging to make sure things work as expected.
 
-External dependencies:
+## External dependencies:
 
 ```bash
 sudo apt-get install linux-tools-generic
 ```
+## Allow cpupowerr command to be run as root without entering password
+
+Verify the location of _cpupower_:
+
+```bash
+$ which cpupower
+/usr/bin/cpupower
+```
+Add a command alias to sudoers
+
+```bash
+##
+## Cmnd alias specification
+##
+## Groups of commands.  Often used to group related commands together.
+Cmnd_Alias POWER_CMDS = /usr/bin/cpupower
+```
+
+Allow your username to run _POWER_CMDS_ without password. Replace _my-username_ with your actual username
+```bash
+# User privilege specification
+root	ALL=(ALL:ALL) ALL
+my-username ALL=(root) NOPASSWD: POWER_CMDS
+```
+
+
 
 Copy the udev rules from _udev-rules_:
 
