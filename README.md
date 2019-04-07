@@ -9,7 +9,7 @@ Inspired from a post on [ubuntuforums.org](https://ubuntuforums.org/showthread.p
 ```bash
 sudo apt-get install linux-tools-generic
 ```
-## Allow cpupowerr command to be run as root without entering password
+## Allow cpupower command to be run as root without entering password
 
 Verify the location of _cpupower_:
 
@@ -34,7 +34,7 @@ root	ALL=(ALL:ALL) ALL
 my-username ALL=(root) NOPASSWD: POWER_CMDS
 ```
 
-
+## Installation
 
 Copy the udev rules from _udev-rules_:
 
