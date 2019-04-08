@@ -9,30 +9,6 @@ Inspired from a post on [ubuntuforums.org](https://ubuntuforums.org/showthread.p
 ```bash
 sudo apt-get install linux-tools-generic
 ```
-## Allow cpupower command to be run as root without entering password
-
-Verify the location of _cpupower_:
-
-```bash
-$ which cpupower
-/usr/bin/cpupower
-```
-Add a command alias to sudoers
-
-```bash
-##
-## Cmnd alias specification
-##
-## Groups of commands.  Often used to group related commands together.
-Cmnd_Alias POWER_CMDS = /usr/bin/cpupower
-```
-
-Allow your username to run _POWER_CMDS_ without password. Replace _my-username_ with your actual username
-```bash
-# User privilege specification
-root	ALL=(ALL:ALL) ALL
-my-username ALL=(root) NOPASSWD: POWER_CMDS
-```
 
 ## Installation
 
@@ -57,10 +33,6 @@ sudo udevadm control --reload
 ```
 
 Then, enjoy plugging in and removing the power cable while watching the logfile
-
-```bash
-tail -f auto-cpu-governor.log
-```
 
 You may further verify the result by executing `cpupower frequency-info`. Note: this command needs a CPU core index.
 
